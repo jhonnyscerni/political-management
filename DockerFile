@@ -1,0 +1,24 @@
+#Usar uma imagem base com JDK e Maven
+FROM maven:3.8.1-openjdk-11-slim as build
+
+#Definir o diretório de trabalho no container
+WORKDIR /app
+
+# Copiar o pom.xml e baixar as dependências para aproveitar o cache do Docker
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+# Copiar o código fonte para o container
+COPY src ./src
+
+# Construir o projeto
+RUN mvn package
+
+# Usar uma imagem base somente com JRE para executar o aplicativo
+FROM openjdk:11-jre-slim
+
+#Copiar o jar criado no estágio anterior
+COPY --from=build /app/target/*-SNAPSHOT.jar app.jar
+
+#Definir o comando para executar o aplicativo
+CMD ["java", "-jar", "app.jar"]
