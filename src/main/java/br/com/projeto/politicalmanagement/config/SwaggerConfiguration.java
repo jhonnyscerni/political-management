@@ -35,7 +35,7 @@ public class SwaggerConfiguration {
                 .securityContexts(Arrays.asList(securityContext()))
                 .securitySchemes(Arrays.asList(apiKey()))
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("br.com.projeto.authjwt.api.controller"))
+                .apis(RequestHandlerSelectors.basePackage("br.com.projeto.politicalmanagement.api.controller"))
                 //.apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build();
