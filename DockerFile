@@ -21,4 +21,4 @@ FROM openjdk:11-jre-slim
 COPY --from=build /app/target/*-SNAPSHOT.jar app.jar
 
 #Definir o comando para executar o aplicativo
-CMD ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
