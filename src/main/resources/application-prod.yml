@@ -1,5 +1,5 @@
 server:
-    port: ${PORT}
+    port: 8080
     servlet:
         context-path: '/politicalmanagement/'
 
@@ -7,9 +7,9 @@ spring:
     application:
         name: politicalmanagement
     datasource:
-        url: ${JDBC_DATABASE_URL}
-        username: ${JDBC_DATABASE_USERNAME}
-        password: ${JDBC_DATABASE_PASSWORD}
+        url: jdbc:postgresql://dpg-cq9su7lds78s739im1fg-a.oregon-postgres.render.com:5432/politicalmanagement
+        username: admin
+        password: nsvkHyqu0eLiloRZp1vDxOeMIS0btBpT
     jpa:
         hibernate:
             ddl-auto: update
