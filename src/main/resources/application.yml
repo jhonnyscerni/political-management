@@ -2,4 +2,4 @@ spring:
     application:
         name: politicalmanagement
     profiles:
-        active: ${PROFILE:prod}
+        active: prod
