@@ -1,5 +1,58 @@
+server:
+    port: ${PORT}
+    servlet:
+        context-path: '/politicalmanagement/'
+
 spring:
     application:
         name: politicalmanagement
-    profiles:
-        active: ${PROFILE:dev}
+    datasource:
+        url: ${JDBC_DATABASE_URL}
+        username: ${JDBC_DATABASE_USERNAME}
+        password: ${JDBC_DATABASE_PASSWORD}
+    jpa:
+        hibernate:
+            ddl-auto: update
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+            jdbc:
+                lob.non-contextual-creation: true
+        properties:
+            hibernate:
+                show_sql: true
+    mail:
+        host: smtp.hostinger.com
+        password: Jscernih4
+        port: 587
+        properties:
+            mail:
+                smtp:
+                    starttls:
+                        enable: true
+                transport:
+                    protocol: smtp
+        username: contato@siberius.com.br
+    freemarker:
+        settings:
+            locale: pt_BR
+
+    mvc:
+        pathmatch:
+            matching-strategy: ant_path_matcher
+
+auth:
+    jwtSecret: t7w!z%C*F-JaNdRgUkXp2s5v8x/A?D(G+KbPeShVmYq3t6w9z$B&E)H@McQfTjWn
+    jwtExpirationMs: 14400000
+jwt:
+    email:
+        impl: fake
+        remetente: Siberius <contato@siberius.com.br>
+logging:
+    level:
+        br:
+            com:
+                projeto: DEBUG
+        org:
+            hibernate: INFO
+            springframework:
+                web: DEBUG
+        root: INFO
