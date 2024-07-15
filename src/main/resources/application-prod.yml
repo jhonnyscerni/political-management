@@ -7,9 +7,9 @@ spring:
     application:
         name: politicalmanagement
     datasource:
-        url: jdbc:postgresql://dpg-cq9su7lds78s739im1fg-a.oregon-postgres.render.com:5432/politicalmanagement
-        username: admin
-        password: nsvkHyqu0eLiloRZp1vDxOeMIS0btBpT
+        url: jdbc:postgresql://viaduct.proxy.rlwy.net:55097/railway
+        username: postgres
+        password: gBQIpTmwZamtwKdamdIkHqyuIUrmuLuU
     jpa:
         hibernate:
             ddl-auto: update
